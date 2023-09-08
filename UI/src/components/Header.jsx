@@ -10,7 +10,7 @@ function Header() {
         </Link>
         <nav className="header-nav">
           <div className="search-bar">
-            <input className="search-input"/>
+            <input className="search-input" placeholder="Search"/>
             <img src={search} className="search-img"/>
           </div>
 
