@@ -1,0 +1,63 @@
+.site-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main {
+  flex-grow: 1;
+  padding-left: 8vw;
+  padding-right: 8vw;
+  padding-top: 10vh;
+  padding-bottom: 10vh;
+}
+
+/** ~~~~~~~~~~~~~~~~~~~~~~~ HEADER ~~~~~~~~~~~~~~~~~~~~~~~~~ **/
+/** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ **/
+
+.header {
+  height: 120px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.header a {
+  text-decoration: none;
+  color: black;
+}
+
+.header a:hover {
+  color: gray;
+}
+
+.header-title-container {
+  display: flex;
+}
+
+.header-title {
+  font-size: 30px;
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  gap: 20px;
+}
+
+.header a {
+  text-decoration: none;
+  color: black;
+}
+
+.header-nav-about {
+    color: black;
+}
+
+.header-nav-signup {
+    border: solid black 2px;
+    padding: 10px;
+}
