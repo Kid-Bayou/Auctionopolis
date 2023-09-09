@@ -6,10 +6,10 @@
 
 .main {
   flex-grow: 1;
-  padding-left: 8vw;
-  padding-right: 8vw;
-  padding-top: 10vh;
-  padding-bottom: 10vh;
+  margin-left: 10vw;
+  margin-right: 10vw;
+  margin-top: 5vh;
+  margin-bottom: 10vh;
 }
 
 /** ~~~~~~~~~~~~~~~~~~~~~~~ HEADER ~~~~~~~~~~~~~~~~~~~~~~~~~ **/
@@ -20,22 +20,21 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-left: 50px;
-  margin-right: 50px;
+  margin-left: 70px;
+  margin-right: 70px;
 }
 
 .header a {
   text-decoration: none;
-  color: black;
+  color: #1d1f1c;
 }
 
 .header a:hover {
-  color: gray;
-  border: solid gray 2px;
+  color: #cdcdcc;
 }
 
-.header-title-container {
-  display: flex;
+.header-nav-signup:hover {
+  border: solid #cdcdcc 2px;
 }
 
 .header-title {
@@ -56,7 +55,8 @@
   display: flex;
   align-items: center;
   text-decoration: none;
-  gap: 30px;
+  gap: 40px;
+  font-size: 20px;
 }
 
 .search-bar {
@@ -64,13 +64,14 @@
 }
 
 .search-input {
- border: solid black 2px;
- height: 35px;
- width: 170px;
+ border: solid #1d1f1c 2px;
+ height: 5vh;
+ width: 15vw;
  border-radius: 20px;
  padding-left: 40px;
  padding-right: 20px;
  padding-top: 5px;
+ background-color: #f0f0f0;
 }
 
 .search-img {
@@ -83,15 +84,15 @@
 
 .header a {
   text-decoration: none;
-  color: black;
+  color: #1d1f1c;
 }
 
 .header-nav-about {
-    color: black;
+    color: #1d1f1c;
 }
 
 .header-nav-signup {
-    border: solid black 2px;
+    border: solid #1d1f1c 2px;
     padding: 10px;
 }
 
@@ -102,7 +103,7 @@
 
 .footer {
   height: 400px;
-  background-color: black;
+  background-color: #1d1f1c;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -116,12 +117,12 @@
 
 .footer-content a {
   text-decoration: none;
-  color: white;
+  color: #f0f0f0;
 }
 
 
 .footer-content h3, .footer-content p {
-  color: white;
+  color: #f0f0f0;
 }
 
 .footer-company {
@@ -159,8 +160,8 @@
 .social-logo {
   height: 40px;
   border-radius: 50%;
-  background-color: #aaaaaa;
-  border: solid #aaaaaa 2px;
+  background-color: #f0f0f0;
+  border: solid #f0f0f0 2px;
 }
 
 .footer-copyright hr {
@@ -169,5 +170,5 @@
 
 .footer-copyright {
   margin-top: 140px;
-  color: white;
+  color: #f0f0f0;
 }

@@ -1,0 +1,53 @@
+/** ~~~~~~~~~~~~~~~~~~~~~~~ ABOUT ~~~~~~~~~~~~~~~~~~~~~~~~~ **/
+/** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ **/
+
+.about-header-container {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+}
+
+.about-header {
+  font-family: "Rozha One", serif;
+}
+
+.about-a {
+  font-size: 150px;
+}
+
+.about-rest {
+  font-size: 100px;
+}
+
+.about-container {
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 200px;
+}
+
+.about-img {
+  width: 60vw;
+}
+
+.about-content {
+  width: 100%;
+  position: absolute;
+  left: 35vw;
+  top: 10vh;
+  z-index: 1000;
+  background-color: #f0f0f0;
+  border: 2px solid black;
+  width: 40vw;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.about-content-header {
+  font-size: 4vw;
+}
+
+.about-content-text {
+  font-size: 1.5vw;
+}

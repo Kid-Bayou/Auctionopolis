@@ -5,8 +5,8 @@ function Header() {
   return (
     <>
       <header className="header">
-        <Link className="header-nav-container" to="/">
-          <p className="header-title"><h1 className="header-A">A</h1><h2 className="header-A-rest">uctionopolis</h2></p>
+        <Link className="header-title" to="/">
+          <h1 className="header-A">A</h1><h2 className="header-A-rest">uctionopolis</h2>
         </Link>
         <nav className="header-nav">
           <div className="search-bar">

@@ -31,35 +31,35 @@ font-family: 'Ysabeau', sans-serif;
 .color1 {
   width: 100px;
   height: 100px;
-  background-color: #fdfaf7;
+  background-color: white;
 }
 
 .color2 {
   width: 100px;
   height: 100px;
-  background-color: #f5eadb;
+  background-color: #f0f0f0;
 }
 
 .color3 {
   width: 100px;
   height: 100px;
-  background-color: #dcc9b1;
+  background-color: #cdcdcc;
 }
 
 .color4 {
   width: 100px;
   height: 100px;
-  background-color: #886f50;
+  background-color: #777776;
 }
 
 .color5 {
   width: 100px;
   height: 100px;
-  background-color: #161616;
+  background-color: #1d1f1c;
 }
 
 .color6 {
   width: 100px;
   height: 100px;
-  background-color: #aaaaaa;
+  background-color: black;
 }
