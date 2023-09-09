@@ -39,7 +39,17 @@
 }
 
 .header-title {
-  font-size: 30px;
+  font-family: 'Rozha One', serif;
+  display: flex;
+  align-items: center;
+}
+
+.header-A {
+  font-size: 60px;
+}
+
+.header-A-rest {
+  font-size: 35px;
 }
 
 .header-nav {
@@ -87,7 +97,7 @@
 
 
 
-/** ~~~~~~~~~~~~~~~~~~~~~~~ HEADER ~~~~~~~~~~~~~~~~~~~~~~~~~ **/
+/** ~~~~~~~~~~~~~~~~~~~~~~~ FOOTER ~~~~~~~~~~~~~~~~~~~~~~~~~ **/
 /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ **/
 
 .footer {
@@ -95,12 +105,13 @@
   background-color: black;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 
 .footer-content {
   display: flex;
   justify-content: space-evenly;
+  margin-bottom: -70px;
 }
 
 .footer-content a {
@@ -123,23 +134,40 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  gap: 10px;
 }
 
 .footer-resources {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  gap: 10px;
 }
 
 .footer-social {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
 }
 
-.footer-line {
-  color: white;
+.footer-social-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.social-logo {
+  height: 40px;
+  border-radius: 50%;
+  background-color: #aaaaaa;
+  border: solid #aaaaaa 2px;
+}
+
+.footer-copyright hr {
+  width: 95vw;
 }
 
 .footer-copyright {
+  margin-top: 140px;
   color: white;
 }

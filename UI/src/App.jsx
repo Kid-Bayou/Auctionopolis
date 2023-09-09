@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Layout from "./components/Layout";
+import Home from "./pages/Home"
 import Colors from "./pages/Colors";
 
 import "./App.css";
@@ -12,6 +13,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
+            <Route index element={<Home />}></Route>
             <Route path="/color" element={<Colors />}></Route>
           </Route>
         </Routes>
