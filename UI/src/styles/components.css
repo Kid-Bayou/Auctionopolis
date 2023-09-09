@@ -84,3 +84,62 @@
     border: solid black 2px;
     padding: 10px;
 }
+
+
+
+/** ~~~~~~~~~~~~~~~~~~~~~~~ HEADER ~~~~~~~~~~~~~~~~~~~~~~~~~ **/
+/** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ **/
+
+.footer {
+  height: 400px;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.footer-content a {
+  text-decoration: none;
+  color: white;
+}
+
+
+.footer-content h3, .footer-content p {
+  color: white;
+}
+
+.footer-company {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+}
+
+.footer-quicklinks {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.footer-resources {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.footer-social {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-line {
+  color: white;
+}
+
+.footer-copyright {
+  color: white;
+}
