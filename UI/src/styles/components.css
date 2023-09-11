@@ -6,10 +6,6 @@
 
 .main {
   flex-grow: 1;
-  margin-left: 10vw;
-  margin-right: 10vw;
-  margin-top: 5vh;
-  margin-bottom: 10vh;
 }
 
 /** ~~~~~~~~~~~~~~~~~~~~~~~ HEADER ~~~~~~~~~~~~~~~~~~~~~~~~~ **/

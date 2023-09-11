@@ -22,7 +22,7 @@ function Header() {
             Products
           </NavLink>
 
-          <NavLink to="/Signup" className="header-nav-signup">
+          <NavLink to="/signup" className="header-nav-signup">
             Sign Up
           </NavLink>
         </nav>
