@@ -10,13 +10,13 @@
 .signup-background {
   background-size: cover;
   width: 100%;
-  margin-top: -12vw;
+  margin-top: -10vw;
 }
 
 .login-background {
   background-size: cover;
   width: 100%;
-  margin-top: -20vw;
+  margin-top: -10vw;
 }
 
 .signup-login-form {
@@ -46,12 +46,11 @@
   height: 6vh;
   border: none;
   border-bottom: solid black 2px;
-  font-family: 'Ysabeau', sans-serif;
+  font-family: "Ysabeau", sans-serif;
   font-size: 1.1rem;
   background-color: #f0f0f0;
   padding: 15px;
 }
-
 
 .signup-login-input:focus {
   border: none;
@@ -75,7 +74,46 @@
   color: #f0f0f0;
   border: solid black;
   padding: 10px;
-  font-family: 'Ysabeau', sans-serif;
+  font-family: "Ysabeau", sans-serif;
   font-size: 1.3rem;
   margin-top: 20px;
+}
+
+/** ~~~~~~~~~~~~~~~~~~~~~~~ MEDIA QUERY ~~~~~~~~~~~~~~~~~~~~~~~~~ **/
+/** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ **/
+
+@media (max-width: 1329px) {
+  .signup-background {
+    margin-top: 15vw;
+  }
+
+  .login-background {
+    margin-top: 7vw;
+  }
+
+  .signup-login-input {
+    width: 25vw;
+  }
+
+  .signup-login-name-input input {
+    width: 12.3vw;
+  }
+}
+
+@media (max-width: 999px) {
+  .signup-background {
+    margin-top: 30vw;
+  }
+
+.login-background {
+  margin-top: 30vw;
+}
+
+  .signup-login-input {
+    width: 30vw;
+  }
+
+  .signup-login-name-input input {
+    width: 14.5vw;
+  }
 }
