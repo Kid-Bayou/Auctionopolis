@@ -1,7 +1,73 @@
+.signup-login-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
 .signup-login-background {
-    margin-top: -300px;
-    padding-top: 0;
-    background-size: cover;
-    background-position: center;
-    width: 100%;
+  background-size: cover;
+  width: 100%;
+  margin-top: -25vw;
+}
+
+.signup-login-form {
+  position: absolute;
+  top: 15%;
+  left: 32%;
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 5px;
+  width: 35vw;
+  height: 40vw;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.signup-login-input {
+  width: 20vw;
+  height: 6vh;
+  border: none;
+  border-bottom: solid black 2px;
+  font-family: 'Ysabeau', sans-serif;
+  font-size: 1.1rem;
+  background-color: #f0f0f0;
+  padding: 15px;
+}
+
+
+.signup-login-input:focus {
+  border: none;
+}
+
+.signup-login-name-input {
+  display: flex;
+  width: 5vw;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.signup-login-name-input input {
+  width: 9.7vw;
+}
+
+.signup-login-button {
+  width: 10vw;
+  background-color: black;
+  color: #f0f0f0;
+  border: solid black;
+  padding: 10px;
+  font-family: 'Ysabeau', sans-serif;
+  font-size: 1.1rem;
 }
