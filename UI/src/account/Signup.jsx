@@ -1,10 +1,12 @@
+import { Link } from "react-router-dom"
+
 import background from "../assets/img/a-background.png";
 
 function Signup() {
   return (
     <>
       <div className="signup-login-container">
-        <img src={background} className="signup-login-background" />
+        <img src={background} className="signup-background" />
         <div className="signup-login-form">
           <h1>Sign Up</h1>
           <form className="form">
@@ -48,7 +50,7 @@ function Signup() {
 
             <button className="signup-login-button">Sign Up</button>
           </form>
-          <p>Already have an account? Login</p>
+          <p>Already have an account? <Link to="/login">Login</Link></p>
         </div>
       </div>
     </>
