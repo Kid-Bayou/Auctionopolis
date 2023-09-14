@@ -1,7 +1,11 @@
 import { Link, NavLink } from "react-router-dom";
+import { useState } from "react";
 import search from "../assets/icons/search.png";
+import SearchModal from "../pages/SearchModal";
 
 function Header() {
+  const [openModal, setOpenModal] = useState(false);
+
   return (
     <>
       <header className="header">
@@ -9,11 +13,17 @@ function Header() {
           <h1 className="header-A">A</h1>
           <h2 className="header-A-rest">uctionopolis</h2>
         </Link>
-        <div className="search-bar">
-          <input className="search-input" placeholder="Search" />
-          <img src={search} className="search-img" />
-        </div>
         <nav className="header-nav">
+          <img
+            src={search}
+            className="search-img"
+            onClick={() => {
+              setOpenModal(true);
+            }}
+          />
+
+          {openModal && <SearchModal closeModal={setOpenModal} />}
+
           <NavLink to="/about" className="header-nav-about">
             About
           </NavLink>
