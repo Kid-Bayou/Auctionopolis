@@ -117,6 +117,11 @@
   color: #f0f0f0;
 }
 
+.footer-content a:hover {
+  border-radius: 50%;
+  box-shadow: #f0f0f0 0px 22px 70px 4px, #f0f0f035 0px -23px 25px 0px inset;
+}
+
 .footer-content h3,
 .footer-content p {
   color: #f0f0f0;
