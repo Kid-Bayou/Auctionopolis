@@ -8,8 +8,8 @@ function Sidebar() {
         <div className="buyer-sidebar-img-container">
           <img src={img} className="buyer-sidebar-img" />
         </div>
-        <Link to="/buyer/userinfo">
-          <h3>User Information</h3>
+        <Link to="/buyer/profile">
+          <h3>Profile</h3>
         </Link>
         <Link to="/buyer/purchasehistory">
           <h3>Purchase History</h3>

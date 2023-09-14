@@ -1,5 +1,5 @@
 
-function UserInfo() {
+function UnsoldItems() {
     return (
         <>
             <h1>Hello!</h1>
@@ -7,4 +7,4 @@ function UserInfo() {
     )
 }
 
-export default UserInfo
+export default UnsoldItems
