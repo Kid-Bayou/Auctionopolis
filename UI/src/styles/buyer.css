@@ -1,0 +1,37 @@
+.buyer-profile-layout-wrapper {
+  display: flex;
+  width: 90%;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  /*border: solid green 5px;*/
+}
+
+.buyer-profile-main {
+    width: 80%;
+  margin: 40px;
+ /* border: solid red 5px;*/
+}
+
+.buyer-sidebar {
+  display: flex;
+  flex-direction: column;
+  /*border: solid blue 5px;*/
+  width: 20%;
+}
+
+.buyer-sidebar-img-container {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.buyer-sidebar-img {
+    vertical-align: middle;
+    width: 7vw;
+    height: 7vw;
+    border-radius: 50%;
+}
+
+.buyer-sidebar a {
+    text-decoration: none;
+    color: black;
+}
