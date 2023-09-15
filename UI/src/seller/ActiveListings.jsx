@@ -2,7 +2,7 @@
 function ActiveListings() {
     return (
         <>
-            <h1>Hello!</h1>
+            <h1>Active Listings</h1>
         </>
     )
 }

@@ -2,7 +2,7 @@
 function Listings() {
     return (
         <>
-            <h1>Hello!</h1>
+            <h1>Listings</h1>
         </>
     )
 }

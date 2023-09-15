@@ -2,7 +2,7 @@
 function RevenueAndEarnings() {
     return (
         <>
-            <h1>Hello!</h1>
+            <h1>Revenue and Earnings</h1>
         </>
     )
 }

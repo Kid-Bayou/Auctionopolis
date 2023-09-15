@@ -2,7 +2,7 @@
 function SoldItems() {
     return (
         <>
-            <h1>Hello!</h1>
+            <h1>Sold Items</h1>
         </>
     )
 }

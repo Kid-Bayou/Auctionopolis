@@ -1,37 +1,33 @@
-import { Link } from "react-router-dom";
-import img from "../assets/img/about-img.jpg";
+import { Link, useLocation } from "react-router-dom";
 
 function Sidebar() {
+  const sidebarLinks = [
+    { path: "/seller/listings", text: "Listings" },
+    { path: "/seller/activelistings", text: "Active Listings" },
+    { path: "/seller/solditems", text: "Sold Items" },
+    { path: "/seller/unsolditems", text: "Unsold Items" },
+    { path: "/seller/saleshistory", text: "Sales History" },
+    { path: "/seller/revenueandearnings", text: "Revenue and Earnings" },
+    { path: "/seller/Profile", text: "Profile" },
+  ];
+
+  const location = useLocation();
+
   return (
     <>
-      <div className="seller-sidebar">
-        <div className="seller-sidebar-img-container">
-          <img src={img} className="seller-sidebar-img" />
-        </div>
-        <Link to="/seller/profile">
-          <h3>Profile</h3>
-        </Link>
-        <Link to="/seller/listings">
-          <h3>Listings</h3>
-        </Link>
-        <Link to="/seller/activelistings">
-          <h3>Active Listings</h3>
-        </Link>
-        <Link to="/seller/solditems">
-          <h3>Sold Items</h3>
-        </Link>
-        <Link to="/seller/unsolditems">
-          <h3>Unsold Items</h3>
-        </Link>
-        <Link to="/seller/saleshistory">
-          <h3>Sales History</h3>
-        </Link>
-        <Link to="/seller/revenueandearnings">
-          <h3>Revenue and Earnings</h3>
-        </Link>
-
-        <h3>Logout</h3>
-      </div>
+      <ul className="seller-sidebar">
+        {sidebarLinks.map((link) => (
+          <li
+            key={link.path}
+            className={location.pathname === link.path ? "active" : ""}
+          >
+            <Link to={link.path} className="sidebar-main-link">
+              <span>{link.text}</span>
+            </Link>
+          </li>
+        ))}
+        <li>Logout</li>
+      </ul>
     </>
   );
 }

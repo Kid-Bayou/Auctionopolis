@@ -2,7 +2,7 @@
 function SalesHistory() {
     return (
         <>
-            <h1>Hello!</h1>
+            <h1>Sales History</h1>
         </>
     )
 }
