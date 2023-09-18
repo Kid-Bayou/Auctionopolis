@@ -1,7 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
 import search from "../assets/icons/search.png";
-import SearchModal from "../pages/SearchModal";
+import SearchModal from "./SearchModal";
 import menu from "../assets/icons/menu.png";
 import closeMenu from "../assets/icons/cancel.png";
 
