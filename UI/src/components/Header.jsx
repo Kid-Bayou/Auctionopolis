@@ -2,6 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
 import search from "../assets/icons/search.png";
 import SearchModal from "./SearchModal";
+import MenuModal from "./MenuModal"
 import menu from "../assets/icons/menu.png";
 import closeMenu from "../assets/icons/cancel.png";
 
@@ -39,8 +40,11 @@ function Header() {
           </div>
           <div>
             {isMobile ? (
-              <div className="menu-icon" onClick={handleMenuClick}>
-                <img src={isMenuOpen ? closeMenu : menu} className="menu-img" />
+              <div className="menu-icon" >
+                <img src={menu} className="menu-img" onClick={handleMenuClick}/>
+                
+                {isMenuOpen && <MenuModal closeMenu={setIsMenuOpen} />}
+
               </div>
             ) : (
               <nav className="header-nav">
