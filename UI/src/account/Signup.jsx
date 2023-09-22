@@ -1,6 +1,13 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
+import { auth, googleProvider } from "../config/firebase";
+import {
+  createUserWithEmailAndPassword,
+  signInWithPopup,
+  signOut,
+} from "firebase/auth";
+
 import background from "../assets/img/a-background.png";
 
 function Signup() {
@@ -35,7 +42,7 @@ function Signup() {
       newErrors.lastName = "Last Name is required";
       valid = false;
     }
-    
+
     if (!userData.userName) {
       newErrors.userName = "User Name is required";
       valid = false;
@@ -77,7 +84,23 @@ function Signup() {
     }
 
     try {
-    } catch (error) {}
+      await createUserWithEmailAndPassword(
+        auth,
+        userData.email,
+        userData.password
+      );
+
+      console.log("User signed up");
+      
+      await db.collection("users").doc(userCredential.user.uid).set({
+        firstName: userData.firstName,
+        lastName: userData.lastName,
+        userName: userData.userName,
+        email: userData.email,
+      });
+    } catch (error) {
+      console.error("Error signing up:", error.message);
+    }
   };
 
   const handleChange = (event) => {
@@ -173,7 +196,9 @@ function Signup() {
               <span className="error">{errors.confirmPassword}</span>
             )}
 
-            <button className="signup-login-button" onClick={handleSignup}>Sign Up</button>
+            <button className="signup-login-button" onClick={handleSignup}>
+              Sign Up
+            </button>
           </form>
           <p>
             Already have an account? <Link to="/login">Login</Link>
