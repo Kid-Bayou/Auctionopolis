@@ -1,12 +1,14 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-import { auth, googleProvider } from "../config/firebase";
+import { auth, db, storage, googleProvider } from "../config/firebase";
 import {
   createUserWithEmailAndPassword,
-  signInWithPopup,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
   signOut,
 } from "firebase/auth";
+import { collection, getDocs, addDoc } from "firebase/firestore";
 
 import background from "../assets/img/a-background.png";
 
@@ -20,6 +22,13 @@ function Signup() {
     confirmPassword: "",
   });
 
+  const [userInfo, setUserInfo] = useState({
+    firstName: "",
+    lastName: "",
+    userName: "",
+    email: "",
+  });
+
   const [errors, setErrors] = useState({
     firstName: "",
     lastName: "",
@@ -28,6 +37,18 @@ function Signup() {
     password: "",
     confirmPassword: "",
   });
+
+  const usersCollectionRef = collection(db, "user");
+
+  const [user, setUser] = useState({});
+
+  onAuthStateChanged(auth, (currentUser) => {
+    setUser(currentUser);
+  });
+
+  const logout = async () => {
+    await signOut(auth);
+  };
 
   const validateForm = () => {
     const newErrors = {};
@@ -84,22 +105,46 @@ function Signup() {
     }
 
     try {
-      await createUserWithEmailAndPassword(
+      const user = await createUserWithEmailAndPassword(
         auth,
         userData.email,
         userData.password
       );
 
-      console.log("User signed up");
-      
-      await db.collection("users").doc(userCredential.user.uid).set({
-        firstName: userData.firstName,
-        lastName: userData.lastName,
-        userName: userData.userName,
-        email: userData.email,
-      });
+      handleUser();
+
+      console.log("User created");
     } catch (error) {
       console.error("Error signing up:", error.message);
+    }
+  };
+
+  const handleUser = async () => {
+    setUserInfo((prevUserInfo) => ({
+      ...prevUserInfo,
+      firstName: userData.firstName,
+      lastName: userData.lastName,
+      userName: userData.userName,
+      email: userData.email,
+    }));
+  };
+
+  useEffect(() => {
+    console.log("Updated userInfo: ", userInfo);
+
+    if (
+      userInfo.firstName &&
+      userInfo.lastName &&
+      userInfo.userName &&
+      userInfo.email
+    ) {
+      createUser();
+    }
+  }, [userInfo]);
+
+  const createUser = async () => {
+    if (Object.keys(userInfo).length !== 0) {
+      await addDoc(usersCollectionRef, userInfo);
     }
   };
 
@@ -203,6 +248,8 @@ function Signup() {
           <p>
             Already have an account? <Link to="/login">Login</Link>
           </p>
+          {user?.email}
+          <button onClick={logout}>Logout</button>
         </div>
       </div>
     </>
