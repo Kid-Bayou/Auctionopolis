@@ -1,25 +1,42 @@
-import { Link } from "react-router-dom";
-import img from "../assets/img/about-img.jpg";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { auth, db } from "../config/firebase";
+import { signOut, onAuthStateChanged } from "firebase/auth";
 
 function Sidebar() {
+  const sidebarLinks = [
+    { path: "/buyer/purchasehistory", text: "Purchase History" },
+    { path: "/buyer/biddinghistory", text: "Bidding History" },
+    { path: "/buyer/Profile", text: "Profile" },
+  ];
+
+  const location = useLocation();
+
+  const navigate = useNavigate();
+
+  onAuthStateChanged(auth, (currentUser) => {
+    setUser(currentUser);
+  });
+
+  const logout = async () => {
+    await signOut(auth);
+    navigate("/")
+  };
+
   return (
     <>
-      <div className="buyer-sidebar">
-        <div className="buyer-sidebar-img-container">
-          <img src={img} className="buyer-sidebar-img" />
-        </div>
-        <Link to="/buyer/profile">
-          <h3>Profile</h3>
-        </Link>
-        <Link to="/buyer/purchasehistory">
-          <h3>Purchase History</h3>
-        </Link>
-        <Link to="/buyer/biddinghistory">
-          <h3>Bidding History</h3>
-        </Link>
-
-        <h3>Logout</h3>
-      </div>
+      <ul className="seller-sidebar">
+        {sidebarLinks.map((link) => (
+          <li
+            key={link.path}
+            className={location.pathname === link.path ? "active" : ""}
+          >
+            <Link to={link.path} className="sidebar-main-link">
+              <span>{link.text}</span>
+            </Link>
+          </li>
+        ))}
+        <button onClick={logout}>Logout</button>
+      </ul>
     </>
   );
 }

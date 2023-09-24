@@ -85,6 +85,12 @@
   font-family: "Ysabeau", sans-serif;
   font-size: 1.3rem;
   margin-top: 20px;
+  cursor: pointer;
+}
+
+.signup-login-button:hover {
+  background-color: #777776;
+  border: solid #777776;
 }
 
 

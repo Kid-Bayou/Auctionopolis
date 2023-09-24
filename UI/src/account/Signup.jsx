@@ -275,8 +275,6 @@ function Signup() {
           <p>
             Already have an account? <Link to="/login">Login</Link>
           </p>
-          {user?.email}
-          <button onClick={logout}>Logout</button>
         </div>
       </div>
     </>

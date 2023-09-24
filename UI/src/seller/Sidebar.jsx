@@ -1,4 +1,6 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { auth, db } from "../config/firebase";
+import { signOut, onAuthStateChanged } from "firebase/auth";
 
 function Sidebar() {
   const sidebarLinks = [
@@ -13,6 +15,17 @@ function Sidebar() {
 
   const location = useLocation();
 
+  const navigate = useNavigate();
+
+  onAuthStateChanged(auth, (currentUser) => {
+    setUser(currentUser);
+  });
+
+  const logout = async () => {
+    await signOut(auth);
+    navigate("/")
+  };
+
   return (
     <>
       <ul className="seller-sidebar">
@@ -26,7 +39,7 @@ function Sidebar() {
             </Link>
           </li>
         ))}
-        <li>Logout</li>
+        <button onClick={logout}>Logout</button>
       </ul>
     </>
   );
