@@ -18,6 +18,7 @@ function Signup() {
     lastName: "",
     userName: "",
     email: "",
+    role: "",
     password: "",
     confirmPassword: "",
   });
@@ -27,6 +28,7 @@ function Signup() {
     lastName: "",
     userName: "",
     email: "",
+    role: "",
   });
 
   const [errors, setErrors] = useState({
@@ -34,6 +36,7 @@ function Signup() {
     lastName: "",
     userName: "",
     email: "",
+    role: "",
     password: "",
     confirmPassword: "",
   });
@@ -74,6 +77,11 @@ function Signup() {
       valid = false;
     } else if (!/\S+@\S+\.\S+/.test(userData.email)) {
       newErrors.email = "Email is invalid";
+      valid = false;
+    }
+
+    if (!userData.role) {
+      newErrors.role = "Role is required";
       valid = false;
     }
 
@@ -126,6 +134,7 @@ function Signup() {
       lastName: userData.lastName,
       userName: userData.userName,
       email: userData.email,
+      role: userData.role
     }));
   };
 
@@ -136,7 +145,8 @@ function Signup() {
       userInfo.firstName &&
       userInfo.lastName &&
       userInfo.userName &&
-      userInfo.email
+      userInfo.email &&
+      userInfo.role
     ) {
       createUser();
     }
@@ -214,6 +224,23 @@ function Signup() {
               placeholder="Email"
             />
             {errors.email && <span className="error">{errors.email}</span>}
+
+            
+
+            <select
+            className="signup-login-input"
+              name="role"
+              onChange={handleChange}
+              value={userData.role}
+              required
+            >
+              <option value="">Select a role</option>
+              <option value="Seller">Seller</option>
+              <option value="Buyer">Buyer</option>
+            </select>
+            {errors.role && (
+              <span className="error">{errors.role}</span>
+            )}
 
             <input
               className="signup-login-input"
