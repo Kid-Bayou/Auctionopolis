@@ -19,8 +19,8 @@ function Footer() {
         </div>
         <div className="footer-quicklinks">
           <h3>Quicklinks</h3>
-          <Link>Home</Link>
-          <Link>About</Link>
+          <Link to="/">Home</Link>
+          <Link to="/about">About</Link>
           <Link>Blog</Link>
           <Link>Products</Link>
         </div>
