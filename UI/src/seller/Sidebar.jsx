@@ -17,9 +17,6 @@ function Sidebar() {
 
   const navigate = useNavigate();
 
-  onAuthStateChanged(auth, (currentUser) => {
-    setUser(currentUser);
-  });
 
   const logout = async () => {
     await signOut(auth);

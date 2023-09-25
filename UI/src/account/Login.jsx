@@ -1,13 +1,13 @@
 
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-import { auth, db, storage, googleProvider } from "../config/firebase";
+import { auth, db } from "../config/firebase";
 import {
   signInWithEmailAndPassword,
   onAuthStateChanged
 } from "firebase/auth";
-import { collection, getDocs, addDoc } from "firebase/firestore";
+import { collection, getDocs, addDoc, where } from "firebase/firestore";
 
 import background from "../assets/img/a-background.png";
 
@@ -22,6 +22,8 @@ function Login() {
     email: "",
     password: "",
   });
+
+  const navigate = useNavigate();
   
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -57,23 +59,54 @@ function Login() {
 
   const handleLogin = async (event) => {
     event.preventDefault();
-
+  
     if (!validateForm()) {
       return;
     }
-
+  
     try {
-      const user = await signInWithEmailAndPassword(
+      const userCredential = await signInWithEmailAndPassword(
         auth,
         userData.email,
         userData.password
       );
-
-      console.log("User Logged In");
+  
+      const user = userCredential.user;
+  
+      const userQuerySnapshot = await getDocs(
+        collection(db, "user"),
+        where("email", "==", userData.email)
+      );
+  
+      if (!userQuerySnapshot.empty) {
+        // Find the correct user based on the email
+        const userInfo = userQuerySnapshot.docs.find(
+          (doc) => doc.data().email === userData.email
+        );
+  
+        if (userInfo) {
+          console.log("User role:", userInfo.data().role);
+          console.log("User role:", userInfo.data());
+  
+          if (userInfo.data().role === "Seller") {
+            navigate("/seller");
+          } else if (userInfo.data().role === "Buyer") {
+            navigate("/buyer");
+          } else {
+            console.error("Unknown user role");
+          }
+        } else {
+          console.error("User not found in database");
+        }
+      } else {
+        console.error("User not found in database");
+      }
     } catch (error) {
       console.error("Error Logging In:", error.message);
     }
   };
+  
+  
 
   const [user, setUser] = useState({});
 

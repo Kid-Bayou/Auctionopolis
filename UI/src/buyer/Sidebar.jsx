@@ -1,6 +1,7 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { auth, db } from "../config/firebase";
 import { signOut, onAuthStateChanged } from "firebase/auth";
+import { useState } from "react";
 
 function Sidebar() {
   const sidebarLinks = [
@@ -9,13 +10,12 @@ function Sidebar() {
     { path: "/buyer/Profile", text: "Profile" },
   ];
 
+  const [user, setUser] = useState();
+
   const location = useLocation();
 
   const navigate = useNavigate();
 
-  onAuthStateChanged(auth, (currentUser) => {
-    setUser(currentUser);
-  });
 
   const logout = async () => {
     await signOut(auth);
