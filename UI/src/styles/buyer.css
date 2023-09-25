@@ -19,7 +19,7 @@
   align-items: flex-start;
   list-style: none;
   width: 30%;
-  gap: 20px;
+  gap: 5px;
   padding-left: 0;
 }
 
@@ -31,10 +31,7 @@
 
 .sidebar li {
   border-radius: 10px;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 10px;
 }
 
 .seller-sidebar li:hover {
@@ -61,4 +58,6 @@ font-family: 'Ysabeau', sans-serif;
 font-size: 1.3rem;
 padding: 5px;
 border: solid 1px #1d1f1c;
+cursor: pointer;
+margin-top: 30px;
 }
