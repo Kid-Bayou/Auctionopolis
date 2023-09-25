@@ -4,11 +4,11 @@ import Sidebar from "./Sidebar";
 function Layout() {
   return (
     <>
-      <div className="buyer-profile-layout-wrapper">
+      <div className="profile-layout-wrapper">
 
         <Sidebar />
 
-        <main className="buyer-profile-main">
+        <main className="profile-main">
           <Outlet />
         </main>
 

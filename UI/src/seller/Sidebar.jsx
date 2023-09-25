@@ -25,7 +25,7 @@ function Sidebar() {
 
   return (
     <>
-      <ul className="seller-sidebar">
+      <ul className="sidebar">
         {sidebarLinks.map((link) => (
           <li
             key={link.path}
@@ -36,7 +36,7 @@ function Sidebar() {
             </Link>
           </li>
         ))}
-        <button onClick={logout}>Logout</button>
+        <button onClick={logout} className="logout">Logout</button>
       </ul>
     </>
   );

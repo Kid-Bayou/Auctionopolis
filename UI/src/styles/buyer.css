@@ -1,37 +1,64 @@
-.buyer-profile-layout-wrapper {
+.profile-layout-wrapper {
   display: flex;
-  width: 90%;
+  width: 80%;
   margin-top: 50px;
   margin-bottom: 50px;
   /*border: solid green 5px;*/
 }
 
-.buyer-profile-main {
-    width: 80%;
+.profile-main {
+  width: 70%;
   margin: 40px;
- /* border: solid red 5px;*/
+  /* border: solid red 5px;*/
 }
 
-.buyer-sidebar {
+.sidebar {
   display: flex;
   flex-direction: column;
   /*border: solid blue 5px;*/
-  width: 20%;
+  align-items: flex-start;
+  list-style: none;
+  width: 30%;
+  gap: 20px;
+  padding-left: 0;
 }
 
-.buyer-sidebar-img-container {
-  margin-top: 20px;
-  margin-bottom: 20px;
+.sidebar a {
+  text-decoration: none;
+  color: black;
+  font-size: 1.3rem;
 }
 
-.buyer-sidebar-img {
-    vertical-align: middle;
-    width: 7vw;
-    height: 7vw;
-    border-radius: 50%;
+.sidebar li {
+  border-radius: 10px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
-.buyer-sidebar a {
-    text-decoration: none;
-    color: black;
+.seller-sidebar li:hover {
+  background-color: #cdcdcc;
+}
+
+.sidebar li.active {
+  background-color: #777776;
+  color: #f0f0f0;
+}
+
+.sidebar li.active a {
+  background-color: #777776;
+  color: #f0f0f0;
+}
+
+
+a.link .active {
+  color: #f0f0f0;
+}
+
+.logout {
+font-family: 'Ysabeau', sans-serif;
+font-size: 1.3rem;
+padding: 5px;
+border: solid 1px #1d1f1c;
 }
