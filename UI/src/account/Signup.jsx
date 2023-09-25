@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { auth, db, storage, googleProvider } from "../config/firebase";
 import {
@@ -8,7 +8,7 @@ import {
   signInWithEmailAndPassword,
   signOut,
 } from "firebase/auth";
-import { collection, getDocs, addDoc } from "firebase/firestore";
+import { collection, getDocs, addDoc, where, query  } from "firebase/firestore";
 
 import background from "../assets/img/a-background.png";
 
@@ -40,6 +40,8 @@ function Signup() {
     password: "",
     confirmPassword: "",
   });
+
+  const navigate = useNavigate();
 
   const usersCollectionRef = collection(db, "user");
 
@@ -136,7 +138,22 @@ function Signup() {
       email: userData.email,
       role: userData.role
     }));
+  
+    const userExists = await checkUserExists(userData.email);
+  
+    if (!userExists) {
+      createUser();
+    } else {
+      console.log("User with this email already exists.");
+    }
   };
+  
+  const checkUserExists = async (email) => {
+    const q = query(collection(db, "user"), where("email", "==", email));
+    const querySnapshot = await getDocs(q);
+    return !querySnapshot.empty;
+  };
+  
 
   useEffect(() => {
     console.log("Updated userInfo: ", userInfo);
@@ -149,6 +166,7 @@ function Signup() {
       userInfo.role
     ) {
       createUser();
+      handleNavigate();
     }
   }, [userInfo]);
 
@@ -157,6 +175,15 @@ function Signup() {
       await addDoc(usersCollectionRef, userInfo);
     }
   };
+
+  const handleNavigate = async () => {
+    console.log("Navigating based on role:", userInfo.role);
+    if (userInfo.role === "Seller") {
+      navigate("/seller");
+    } else {
+      navigate("/buyer");
+    }
+  }
 
   const handleChange = (event) => {
     const { name, value } = event.target;
