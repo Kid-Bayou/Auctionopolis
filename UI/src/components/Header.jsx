@@ -2,14 +2,16 @@ import { Link, NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
 import search from "../assets/icons/search.png";
 import SearchModal from "./SearchModal";
-import MenuModal from "./MenuModal"
+import MenuModal from "./MenuModal";
 import menu from "../assets/icons/menu.png";
 import closeMenu from "../assets/icons/cancel.png";
+import { auth } from "../config/firebase";
 
 function Header() {
   const [openModal, setOpenModal] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
     const handleResize = () => {
@@ -19,8 +21,13 @@ function Header() {
     window.addEventListener("resize", handleResize);
     handleResize();
 
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      setUser(user);
+    });
+
     return () => {
       window.removeEventListener("resize", handleResize);
+      unsubscribe();
     };
   }, []);
 
@@ -40,15 +47,12 @@ function Header() {
           </div>
           <div>
             {isMobile ? (
-              <div className="menu-icon" >
-                <img src={menu} className="menu-img" onClick={handleMenuClick}/>
-                
+              <div className="menu-icon">
+                <img src={menu} className="menu-img" onClick={handleMenuClick} />
                 {isMenuOpen && <MenuModal closeMenu={setIsMenuOpen} />}
-
               </div>
             ) : (
               <nav className="header-nav">
-
                 <img
                   src={search}
                   className="search-img"
@@ -56,20 +60,20 @@ function Header() {
                     setOpenModal(true);
                   }}
                 />
-
                 {openModal && <SearchModal closeModal={setOpenModal} />}
-
                 <NavLink to="/about" className="header-nav-item">
                   About
                 </NavLink>
-
                 <NavLink to="/products" className="header-nav-item">
                   Products
                 </NavLink>
-
-                <NavLink to="/signup" className="header-nav-signup">
-                  Sign Up
-                </NavLink>
+                {user ? (
+                  <span></span>
+                ) : (
+                  <NavLink to="/signup" className="header-nav-signup">
+                    Sign Up
+                  </NavLink>
+                )}
               </nav>
             )}
           </div>
