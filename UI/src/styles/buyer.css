@@ -7,8 +7,8 @@
 }
 
 .profile-main {
-  width: 70%;
-  margin: 40px;
+  width: 75%;
+  margin: 20px;
   /* border: solid red 5px;*/
 }
 
@@ -18,7 +18,7 @@
   /*border: solid blue 5px;*/
   align-items: flex-start;
   list-style: none;
-  width: 30%;
+  width: 25%;
   gap: 5px;
   padding-left: 0;
 }
@@ -26,7 +26,7 @@
 .sidebar a {
   text-decoration: none;
   color: black;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
 }
 
 .sidebar li {

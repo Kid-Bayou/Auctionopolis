@@ -56,6 +56,7 @@ const Listings = () => {
 
   return (
     <div className="listings-container">
+      <h1>Listings</h1>
       <div className="item-container">
         {items.map((item) => (
           <div className="item-card" key={item.id}>
